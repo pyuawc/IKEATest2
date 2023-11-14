@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>IKEA price comparison magic button</title>
+<link href="https://fonts.googleapis.com/css?family=Comfortaa|Roboto|Roboto+Condensed" rel="stylesheet">
+<style>
+body {
+  width: 80%;
+  margin: 0 auto;
+  font-family: 'Comfortaa', serif;
+  font-size: 120%;
+  min-height: 100%; 
+}
+
+h1 {
+  font-family: 'Comfortaa', serif;
+  padding: 30px;
+  text-align: center;
+  background-color: #005e9d; /* #0051ba; /*0167CB; #c33399;*/
+  color: white;
+}
+
+ul, h3 {
+  font-family: 'Roboto Condensed', sans-serif;
+  margin-left: 20px;
+  font-size: 115%;
+}
+li {
+  display:inline-block;
+}
+li.selected a {
+  color: #f60;
+}
+
+a {
+  color: #407ab1; /* #3399fd; /* #0051ba; */
+  text-decoration: none;
+}
+a:hover {
+  color: #2c5379; /* #0051ba; */
+  text-decoration: none;
+}
+
+#cntList {
+  font-weight: bold;
+}
+
+#bookmarklet {
+  margin-left: 20px;
+  padding: 10px;
+  background-color: #005e9d; /* #0051ba; */
+  color: white;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+img.demo {
+  float: right;
+  width: 40%;
+  margin: 0 10px 30px 30px;
+  border: 2px #eee solid;
+}
+
+.footer {
+  padding: 10px;
+  text-align: center;
+  background-color: #eee;
+  color: #333;
+  font-size: 75%;
+  clear: both;
+}
+</style>
+</head>
+<body>
+
+<h1><span style="background-color:#ffda1a;color:#005e9d;padding:5px;">IKEA</span> price comparison magic button</h1>
+<img src="demo.gif" class="demo">
+
+Quickly compare prices for any IKEA product across multiple countries:
+
+<h2>1. Choose countries for comparison:</h2>
+<div id = "countries">
+<h3>Asia Pacific</h3>
+<ul>
+<li><a href="https://www.ikea.com/au/en/">Australia</a></li>
+<!-- <li><a href="https://www.ikea.com/cn/zh/">China</a></li> -->
+<!-- <li><a href="https://www.ikea.com/hk/zh/">Hong Kong</a></li> -->
+<!-- <li><a href="https://www.ikea.com/id/in/">Indonesia</a></li> -->
+<li><a href="https://www.ikea.com/in/en/">India</a></li>
+<li><a href="https://www.ikea.com/jp/ja/">Japan</a></li>
+<li><a href="https://www.ikea.com/my/ms/">Malaysia</a></li>
+<li><a href="https://www.ikea.com/ph/en/">Philippines</a></li>
+<li><a href="https://www.ikea.com/sg/en/">Singapore</a></li>
+<li><a href="https://www.ikea.com/kr/ko/">South Korea</a></li>
+<li><a href="https://www.ikea.com/th/th/">Thailand</a></li>
+</ul>
+<h3>Europe</h3>
+<ul>
+<li><a href="https://www.ikea.com/at/de/">Austria</a></li>
+<li><a href="https://www.ikea.com/be/nl/">Belgium</a></li>
+<li><a href="https://www.ikea.com/hr/hr/">Croatia</a></li>
+<li><a href="https://www.ikea.com/cz/cs/">Czech Republic</a></li>
+<li><a href="https://www.ikea.com/dk/da/">Denmark</a></li>
+<li><a href="https://www.ikea.com/fi/fi/">Finland</a></li>
+<li><a href="https://www.ikea.com/fr/fr/">France</a></li>
+<li><a href="https://www.ikea.com/de/de/">Germany</a></li>
+<li><a href="https://www.ikea.com/hu/hu/">Hungary</a></li>
+<li><a href="https://www.ikea.com/ie/en/">Ireland</a></li>
+<li><a href="https://www.ikea.com/it/it/">Italy</a></li>
+<!-- <li><a href="https://www.ikea.com/lt/lt/">Lithuania</a></li> -->
+<li><a href="https://www.ikea.com/nl/nl/">Netherlands</a></li>
+<li><a href="https://www.ikea.com/no/no/">Norway</a></li>
+<li><a href="https://www.ikea.com/pl/pl/">Poland</a></li>
+<li><a href="https://www.ikea.com/pt/pt/">Portugal</a></li>
+<li><a href="https://www.ikea.com/ro/ro/">Romania</a></li>
+<li><a href="https://www.ikea.com/ru/ru/">Russia</a></li>
+<li><a href="https://www.ikea.com/rs/sr/">Serbia</a></li>
+<li><a href="https://www.ikea.com/sk/sk/">Slovakia</a></li>
+<li><a href="https://www.ikea.com/si/sl/">Slovenia</a></li>
+<li><a href="https://www.ikea.com/es/es/">Spain</a></li>
+<li><a href="https://www.ikea.com/se/sv/">Sweden</a></li>
+<li><a href="https://www.ikea.com/ch/de/">Switzerland</a></li>
+<li><a href="https://www.ikea.com/ua/uk/">Ukraine</a></li>
+<li><a href="https://www.ikea.com/gb/en/">United Kingdom</a></li>
+</ul>
+<h3>Middle East and North Africa</h3>
+<ul>
+<li><a href="https://www.ikea.com/bh/en/">Bahrain</a></li>
+<li><a href="https://www.ikea.com/eg/ar/">Egypt</a></li>
+<li><a href="https://www.ikea.com/jo/en/">Jordan</a></li>
+<li><a href="https://www.ikea.com/kw/en/">Kuwait</a></li>
+<li><a href="https://www.ikea.com/ma/fr/">Morocco</a></li>
+<li><a href="https://www.ikea.com/qa/en/">Qatar</a></li>
+<li><a href="https://www.ikea.com/sa/ar/">Saudi Arabia</a></li>
+<li><a href="https://www.ikea.com/ae/ar/">United Arab Emirates</a></li>
+</ul>
+<h3>North America</h3>
+<ul>
+<li><a href="https://www.ikea.com/ca/en/">Canada</a></li>
+<li><a href="https://www.ikea.com/mx/es/">Mexico</a></li>
+<li><a href="https://www.ikea.com/us/en/">United States</a></li>
+</ul>
+</div>
+
+<h2>2. Drag this button to your bookmarks bar:</h2>
+<p>
+<a id="bookmarklet" href="">check price</a>
+</p>
+
+<h2>3. Navigate to an IKEA product page like <a href="https://www.ikea.com/be/nl/p/poaeng-schommelstoel-berkenfineer-hillared-antraciet-s29429119/" target="_blank">this</a>, favorites list or shopping cart</h2>
+
+<h2>4. Click the "check price" button you created in the 2<sup>nd</sup> step</h2>
+
+<h4>5. (optional) <a href = "https://github.com/mnazarov/ikeaprices/issues/4">Please share</a> if you were able to save money or just found curious cases of price differences across countries</h4>
+
+<div class="footer">
+Note: 
+<!-- This page is not affiliated with IKEA.  -->
+The code relies on the IKEA website structure and may stop working if that changes. Some products may not be available in all countries. <br>
+Only countries using the ikea.com domain are listed. See <a href="https://github.com/mnazarov/ikeaprices">GitHub</a> for source code and explanation of how it works.
+</div>
+
+<script src="ikea.js"></script>
+</body>
+</html>
